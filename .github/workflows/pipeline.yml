@@ -28,7 +28,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: "arn:aws:iam::026131848615:role/techchallenge"
-        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
