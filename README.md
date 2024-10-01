@@ -43,7 +43,25 @@ O projeto acontece em 3 fases:
 
 Caso tenha problemas para visualizar o vídeo <a href="https://youtu.be/hTunl4YVG3U">CLIQUE AQUI</a>
 
-### Subindo o ambiente
+### CI/CD
+
+Após a infra ter sido criada, com o CUSTER_NAME, iremos fazer o deploy da nossa aplicação no EKS da AWS.
+
+#### Workflows do GitHub Actions
+
+##### `.github/workflows/kubernets.yml`
+
+#### Variáveis de Ambiente no GitHub Actions
+
+As seguintes variáveis de ambiente podem ser configuradas no GitHub Actions, cadastre-as nas Secrets do repositório:
+
+Para acesso á AWS:
+- `AWS_ACCESS_KEY_ID`: Key do IAM user que será utilizado.
+- `AWS_SECRET_ACCESS_KEY`: Secret do IAM user que será utilizado.
+- `AWS_DEFAULT_REGION`: Região da AWS em que os serviços serão implantados.
+
+
+### Subindo o ambiente local
 
 Certifique-se que as portas 8080 e 3306 estão disponíveis para subir os containers Docker.
 
