@@ -33,6 +33,8 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: "arn:aws:iam::026131848615:role/techchallenge"
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Login to Amazon ECR
@@ -55,7 +57,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
-        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" Kubernetes/app/lanchonete-self-service-deployment.yaml --validate=false && \
+        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" Kubernetes/app/lanchonete-self-service-deployment.yaml && \
         kubectl apply -f Kubernetes/app/lanchonete-self-service-hpa.yaml
         kubectl apply -f Kubernetes/app/lanchonete-self-service.yaml
         kubectl apply -f Kubernetes/app/components.yaml
