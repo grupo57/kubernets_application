@@ -54,7 +54,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --role-arn arn:aws:iam::026131848615:role/techchallenge
 
     - name: Deploy to EKS
       env:
