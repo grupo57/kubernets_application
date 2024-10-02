@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>br.com.fiap.soat07</groupId>
 	<artifactId>tech-challenge-01</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>tech-challenge-01</name>
-	<description>Tech Challenge Fase 1</description>
+	<version>0.0.3</version>
+	<name>tech-challenge-03</name>
+	<description>Tech Challenge Fase 3</description>
 	
 	<properties>
 		<java.version>17</java.version>
